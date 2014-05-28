@@ -11,8 +11,14 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class Util {
 	/**
@@ -21,9 +27,9 @@ public class Util {
 	 * @param pageNumber
 	 * @return
 	 */
-	public static Bitmap getBackground(Activity activity,int pageNumber){
+	public static void setActivityBackground(Activity activity,int pageNumber,View view){
 		Resources resources = activity.getResources();
-		Bitmap bitmap=BitmapFactory.decodeResource(resources,R.drawable.main_background);
+		Bitmap bitmap=BitmapFactory.decodeResource(resources,R.drawable.main_background_2x);
 		
 		int newWidth = bitmap.getWidth()/3;
 		int newHeight = bitmap.getHeight();
@@ -54,6 +60,21 @@ public class Util {
 //		
 //		Log.d("Poding", "success");
 	    
-	    return backgroudBitmap;
+	    Drawable imagebakground = new BitmapDrawable(activity.getResources(), backgroudBitmap);
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//		 	Log.i("Poding", "Background");
+		 	view.setBackground(imagebakground);
+		} else {
+//		   	Log.i("Poding", "Drawable");
+		   	view.setBackgroundDrawable(imagebakground);
+		}
+	}
+	
+	public static void setFullScreen(Activity activity){
+		// 使屏幕不显示标题栏(必须要在setContentView方法执行前执行)
+		activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// 隐藏状态栏，使内容全屏显示(必须要在setContentView方法执行前执行)
+		activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	}
 }

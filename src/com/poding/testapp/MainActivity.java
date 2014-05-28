@@ -18,7 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 @SuppressLint("NewApi")
 public class MainActivity extends ActionBarActivity {
@@ -27,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Util.setFullScreen(this);
 		setContentView(R.layout.activity_main);
 
 //
@@ -42,19 +46,8 @@ public class MainActivity extends ActionBarActivity {
 		Constants.ScreenHeight = screenSize.y;
 		Constants.ScreenWidth = screenSize.x;
 		
-		FrameLayout frameLayout = (FrameLayout)findViewById(R.id.main_page_framelayout);
-		Drawable imagebakground = new BitmapDrawable(getResources(), Util.getBackground(this,2));
-		if(imagebakground == null)
-			Log.d("Poding", "drawable null");
-		
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-//		 	Log.i("Poding", "Background");
-		 	frameLayout.setBackground(imagebakground);
-		} else {
-//		   	Log.i("Poding", "Drawable");
-		   	frameLayout.setBackgroundDrawable(imagebakground);
-		}
-		
+		LinearLayout linearlayout = (LinearLayout)findViewById(R.id.main_page_linearlayout);
+		Util.setActivityBackground(this, 1, linearlayout);
 	}
 
 //	@Override
