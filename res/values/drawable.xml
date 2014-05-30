@@ -5,4 +5,5 @@
     <color name="lightgray">#c8c3c3</color>
     <color name="lightgreen">#7cd12e</color>
     <color name="panelBackColor">#80000203</color>
+    <color name="orange">#ff9a00</color>
 </resources>

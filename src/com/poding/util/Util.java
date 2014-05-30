@@ -2,6 +2,7 @@ package com.poding.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Calendar;
 
 import com.poding.constants.Constants;
 import com.poding.testapp.R;
@@ -76,5 +77,16 @@ public class Util {
 		activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		// 隐藏状态栏，使内容全屏显示(必须要在setContentView方法执行前执行)
 		activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+	}
+	
+	public static String getFormatedDate(int year,int month,int dayOfMonth){
+		month+=1;
+		String selectedDate = "%s-%s-%s";
+		return String.format(
+				selectedDate, String.valueOf(year),String.valueOf(month),String.valueOf(dayOfMonth));
+	}
+	
+	public static String getFormatedDate(Calendar calendar){
+		return getFormatedDate(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
 	}
 }
