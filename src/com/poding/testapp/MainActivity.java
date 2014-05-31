@@ -6,6 +6,7 @@ import com.poding.util.Util;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -24,13 +25,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 @SuppressLint("NewApi")
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Util.setFullScreen(this);
+//		Util.setFullScreen(this);
 		setContentView(R.layout.activity_main);
 
 //

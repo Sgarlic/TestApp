@@ -49,7 +49,7 @@ public class Activity01 extends Activity {
     @Override  
     public void onCreate(Bundle savedInstanceState) {  
         super.onCreate(savedInstanceState);  
-        setContentView(R.layout.main);  
+        setContentView(R.layout.activity_city_select);  
         
         allCitiesListView = (ListView) findViewById(R.id.city_select_listView);
         letterListView = (MyLetterListView) findViewById(R.id.city_select_letter_listView);

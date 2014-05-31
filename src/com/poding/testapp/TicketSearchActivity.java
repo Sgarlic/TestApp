@@ -9,6 +9,7 @@ import com.poding.util.Util;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.os.Build;
 
-public class TicketSearchActivity extends ActionBarActivity {
+public class TicketSearchActivity extends Activity {
 	private TextView flyFromDateTextView;
 	private TextView leftpageFlyFromTextView;
 
@@ -37,7 +38,7 @@ public class TicketSearchActivity extends ActionBarActivity {
 		Constants.ScreenHeight = screenSize.y;
 		Constants.ScreenWidth = screenSize.x;
 		
-		Util.setFullScreen(this);
+//		Util.setFullScreen(this);
 		setContentView(R.layout.activity_ticket_search);
 		LinearLayout linearlayout = (LinearLayout)findViewById(R.id.ticket_search_linearlayout);
 		Util.setActivityBackground(this, 0, linearlayout);

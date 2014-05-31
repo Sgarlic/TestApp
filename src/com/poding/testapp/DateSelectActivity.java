@@ -9,6 +9,7 @@ import com.poding.util.Util;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,12 +26,12 @@ import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 
-public class DateSelectActivity extends ActionBarActivity {
+public class DateSelectActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Util.setFullScreen(this);
+//		Util.setFullScreen(this);
 		setContentView(R.layout.activity_date_select);
 		
 		initView();
@@ -60,9 +61,9 @@ public class DateSelectActivity extends ActionBarActivity {
 //		});
 		
 		CalendarView fromDateCalendarView = (CalendarView)findViewById(R.id.from_date_calendarView);
-		Calendar minDate = Calendar.getInstance();
+//		Calendar minDate = Calendar.getInstance();
 //		Log.d("poding","here");
-		fromDateCalendarView.setMinDate(minDate.getTimeInMillis()-100);
+//		fromDateCalendarView.setMinDate(minDate.getTimeInMillis()-100);
 //		Log.d("poding","here111111111111");
 		Calendar maxDate = Calendar.getInstance();
 		maxDate.add(Calendar.MONTH, 6);
