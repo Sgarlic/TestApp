@@ -2,7 +2,6 @@ package com.poding.testapp;
 
 import java.util.Calendar;
 
-import com.droid.Activity01;
 import com.poding.constants.Constants;
 import com.poding.util.Util;
 
@@ -28,6 +27,7 @@ import android.os.Build;
 public class TicketSearchActivity extends Activity {
 	private TextView flyFromDateTextView;
 	private TextView leftpageFlyFromTextView;
+	private TextView leftPageFlyFromCodeTextView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class TicketSearchActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent();
-				intent.setClass(TicketSearchActivity.this, Activity01.class);
+				intent.setClass(TicketSearchActivity.this, CitySelectActivity.class);
 				startActivityForResult(intent,0);
 			}
 		});

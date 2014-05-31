@@ -37,7 +37,7 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity 
-            android:name="com.droid.Activity01"
+            android:name="com.poding.testapp.CitySelectActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
