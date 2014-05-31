@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_ticket_search">TicketSearchActivity</string>
     <string name="title_activity_date_select">DateSelectActivity</string>
+    <string name="title_activity_city_select">CitySelectActivity</string>
 
 </resources>

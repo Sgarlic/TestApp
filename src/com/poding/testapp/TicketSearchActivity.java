@@ -2,6 +2,7 @@ package com.poding.testapp;
 
 import java.util.Calendar;
 
+import com.droid.Activity01;
 import com.poding.constants.Constants;
 import com.poding.util.Util;
 
@@ -25,6 +26,7 @@ import android.os.Build;
 
 public class TicketSearchActivity extends ActionBarActivity {
 	private TextView flyFromDateTextView;
+	private TextView leftpageFlyFromTextView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,17 @@ public class TicketSearchActivity extends ActionBarActivity {
 		Calendar calendar = Calendar.getInstance();
 		String flyFromDate = Util.getFormatedDate(calendar);
 		flyFromDateTextView.setText(flyFromDate);
+		Constants.Fly_From_Date = flyFromDate;
+		
+		leftpageFlyFromTextView = (TextView)findViewById(R.id.leftpage_fly_from_textView);
+		leftpageFlyFromTextView.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent();
+				intent.setClass(TicketSearchActivity.this, Activity01.class);
+				startActivityForResult(intent,0);
+			}
+		});
 	}
 
 	@Override
@@ -101,10 +114,14 @@ public class TicketSearchActivity extends ActionBarActivity {
 	@Override
 	 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	  super.onActivityResult(requestCode, resultCode, data);
+	  if(data == null)
+		  return;
 	  if(data.getExtras() == null)
 		  return;
 	  if(requestCode==1 && data.getExtras().containsKey("selectedDate")){
-		  flyFromDateTextView.setText(data.getExtras().get("selectedDate").toString());
+		  String flyFromDate = data.getExtras().get("selectedDate").toString();
+		  flyFromDateTextView.setText(flyFromDate);
+		  Constants.Fly_From_Date = flyFromDate;
 	  }
 	 }
 }
